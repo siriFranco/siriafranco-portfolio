@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouteService} from 'src/app/shared/services/route.service';
+import { PortfolioType } from 'src/app/shared/constants/app.constants';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,23 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 
 export class PortfolioComponent implements OnInit {
 
-  viewType: 'architecture' | 'software' | 'all' = 'all';
+  viewType: PortfolioType | 'all' = 'all';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private routeService: RouteService
+  ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const type = params.get('type');
-
-      if (type === 'architecture') {
-        this.viewType = 'architecture';
-      } else if (type === 'software') {
-        this.viewType = 'software';
-      } else {
-        this.viewType = 'all';
-      }
-
-      console.log('Current view:', this.viewType);
-    });
+    this.routeService.getPortfolioType(this.route)
+      .subscribe(type => {
+        this.viewType = type;
+        console.log('Portfolio view:', type);
+      });
   }
 }

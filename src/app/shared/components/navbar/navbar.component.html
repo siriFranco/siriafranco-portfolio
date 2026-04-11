@@ -1,0 +1,21 @@
+<nav class="navbar">
+  
+  <!-- Logo -->
+  <div class="navbar__logo">
+    Siria Franco
+  </div>
+
+  <!-- Hamburger -->
+  <div class="navbar__toggle" (click)="toggleMenu()">
+    ☰
+  </div>
+
+  <!-- Menu -->
+  <div class="navbar__menu" [class.open]="isMenuOpen">
+
+    <a [routerLink]="portfolioLink" (click)="closeMenu()">Portfolio</a>
+    <a [routerLink]="resumeLink" (click)="closeMenu()">Resume</a>
+
+  </div>
+
+</nav>

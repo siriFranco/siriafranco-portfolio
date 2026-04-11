@@ -1,0 +1,86 @@
+.navbar {
+  position: relative; // 🔥 clave para que el menú se alinee al navbar
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #292a34;
+  color: white;
+
+  &__logo {
+    font-weight: bold;
+  }
+
+  &__toggle {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%; // 🔥 justo debajo del navbar
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; // 🔥 respeta padding
+    background: #111;
+    
+    display: none;
+    flex-direction: column;
+    padding: 16px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 8px 0;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  &__section {
+    margin-top: 16px;
+
+    span {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  }
+}
+
+/* 💻 Desktop */
+@media (min-width: 768px) {
+  .navbar {
+
+    &__toggle {
+      display: none;
+    }
+
+    &__menu {
+      position: static; // 🔥 deja de ser dropdown
+      display: flex !important;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      width: auto;
+      padding: 0;
+      background: transparent;
+    }
+
+    &__section {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
