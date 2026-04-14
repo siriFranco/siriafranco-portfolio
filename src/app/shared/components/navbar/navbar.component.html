@@ -1,20 +1,66 @@
 <nav class="navbar">
   
   <!-- Logo -->
-  <div class="navbar__logo">
-    Siria Franco
-  </div>
+    <div class="navbar__logo">
+        <a class="navbar__logo"
+            [routerLink]="homeLink"
+            (click)="closeMenu()">
 
-  <!-- Hamburger -->
+            <img src="assets/icons/icon.png" alt="Logo" />
+            <span>Siria Franco</span>
+
+        </a>
+    </div>
+
+<!-- 🔥 Hamburger -->
   <div class="navbar__toggle" (click)="toggleMenu()">
     ☰
   </div>
 
-  <!-- Menu -->
+  <!-- 🔥 Menu -->
   <div class="navbar__menu" [class.open]="isMenuOpen">
 
-    <a [routerLink]="portfolioLink" (click)="closeMenu()">Portfolio</a>
-    <a [routerLink]="resumeLink" (click)="closeMenu()">Resume</a>
+    <!-- ===================== -->
+    <!-- 📁 PORTFOLIO -->
+    <!-- ===================== -->
+    <div class="navbar__section">
+
+      <a [routerLink]="portfolioLink"
+         (click)="closeMenu()">
+        Portfolio
+      </a>
+
+      <!-- 🔥 Submenu SOLO en modo home -->
+      <div class="navbar__sub" *ngIf="shouldShowSubmenu()">
+        <a *ngFor="let type of portfolioTypes"
+           [routerLink]="'/portfolio/' + type"
+           (click)="closeMenu()">
+          {{ type }}
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- 📄 RESUME -->
+    <!-- ===================== -->
+    <div class="navbar__section">
+
+      <a [routerLink]="resumeLink"
+         (click)="closeMenu()">
+        Resume
+      </a>
+
+      <!-- 🔥 Submenu SOLO en modo home -->
+      <div class="navbar__sub" *ngIf="shouldShowSubmenu()">
+        <a *ngFor="let role of resumeRoles"
+           [routerLink]="'/resume/' + role"
+           (click)="closeMenu()">
+          {{ role }}
+        </a>
+      </div>
+
+    </div>
 
   </div>
 

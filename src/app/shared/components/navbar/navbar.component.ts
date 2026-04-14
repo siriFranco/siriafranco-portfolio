@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { PORTFOLIO_TYPES, RESUME_ROLES } from 'src/app/shared/constants/app.constants';
+import { NavigationEnd, Router } from '@angular/router';
+import { 
+  APP_MODES,
+  AppMode,
+  PORTFOLIO_TYPES,
+  RESUME_ROLES,
+  getModeFromPath } from 'src/app/shared/constants/app.constants';
 import { filter } from 'rxjs';
 
 @Component({
@@ -12,7 +17,15 @@ export class NavbarComponent implements OnInit {
 
   isMenuOpen = false;
 
-  currentType: string | null = null;
+  portfolioTypes = PORTFOLIO_TYPES;
+  resumeRoles = RESUME_ROLES;
+
+  currentMode: AppMode = 'home';
+
+  currentContext = {
+    section: null as string | null, // home, portfolio, resume
+    type: null as string | null     // architecture, software, etc
+  };
 
   constructor(private router: Router) {}
 
@@ -20,31 +33,64 @@ export class NavbarComponent implements OnInit {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+
         const url = this.router.url;
+        const segments = url.split('/');
 
-        const parts = url.split('/');
-        this.currentType = parts.length > 2 ? parts[2] : null;
+        const firstSegment = segments[1];
 
-        // 🔥 cerrar menú automáticamente
+        // 🔥 SOLO actualizar modo si es válido
+        if (APP_MODES.includes(firstSegment as AppMode)) {
+          this.currentMode = firstSegment as AppMode;
+        }
+
+        // 🔥 contexto (esto sí siempre se actualiza)
+        this.currentContext = {
+          section: segments[1] || null,
+          type: segments[2] || null
+        };
+
         this.isMenuOpen = false;
       });
+  }
+
+  // 🔥 LOGO LINK (dinámico por modo)
+  get homeLink(): string {
+    return `/${this.currentMode}`;
+  }
+
+  // 🔥 PORTFOLIO LINK
+  get portfolioLink(): string {
+    if (this.currentMode === 'arch') {
+      return '/portfolio/architecture';
+    }
+    if (this.currentMode === 'dev') {
+      return '/portfolio/software';
+    }
+    return '/portfolio';
+  }
+
+  // 🔥 RESUME LINK
+  get resumeLink(): string {
+    if (this.currentMode === 'arch') {
+      return '/resume/architect';
+    }
+    if (this.currentMode === 'dev') {
+      return '/resume/software';
+    }
+    return '/resume';
+  }
+
+  // 🔥 CONTROL DE SUBMENÚ
+  shouldShowSubmenu(): boolean {
+    return this.currentMode === 'home';
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  get portfolioLink(): string {
-    return this.currentType ? `/portfolio/${this.currentType}` : '/portfolio';
-  }
-
-  get resumeLink(): string {
-    return this.currentType ? `/resume/${this.currentType}` : '/resume';
-  }
-
   closeMenu() {
     this.isMenuOpen = false;
   }
-
-  
 }
