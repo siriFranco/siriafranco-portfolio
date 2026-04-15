@@ -1,2 +1,11 @@
 <h1>Portfolio works!</h1>
 <p>Current mode: {{ mode }}</p>
+
+<!-- 🔥 Mostrar TODO cuando es /portfolio -->
+<ng-container *ngIf="!hasChildRoute">
+  <app-architecture></app-architecture>
+  <app-software></app-software>
+</ng-container>
+
+<!-- 🔥 Aquí se renderizan /architecture o /software -->
+<router-outlet></router-outlet>

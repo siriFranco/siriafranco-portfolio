@@ -5,6 +5,7 @@ import {
   PORTFOLIO_TYPES,
   RESUME_ROLES,
   getModeFromPath } from 'src/app/shared/constants/app.constants';
+import { getPortfolioLink, getResumeLink } from '../../utils/navigation.utils';
 import { filter } from 'rxjs';
 
 @Component({
@@ -38,16 +39,21 @@ export class NavbarComponent implements OnInit {
 
         const firstSegment = segments[1];
 
-        // 🔥 SOLO actualizar modo si es válido
-/*         if (APP_MODES.includes(firstSegment as AppMode)) {
-          this.currentMode = firstSegment as AppMode;
-        } */
+        // 🔥 MODE
+        this.currentMode = getModeFromPath(firstSegment);
 
-        // 🔥 contexto (esto sí siempre se actualiza)
+        // 🔥 CONTEXTO
         this.currentContext = {
-          section: segments[1] || null,
-          type: segments[2] || null
+          section: segments[2] || null,
+          type: segments[3] || null
         };
+
+        // 🧪 LOGS
+        console.log('🔵 NAVBAR');
+        console.log('URL:', url);
+        console.log('Segments:', segments);
+        console.log('Mode:', this.currentMode);
+        console.log('Context:', this.currentContext);
 
         this.isMenuOpen = false;
       });
@@ -60,24 +66,11 @@ export class NavbarComponent implements OnInit {
 
   // 🔥 PORTFOLIO LINK
   get portfolioLink(): string {
-    if (this.currentMode === 'arch') {
-      return '/portfolio/architecture';
-    }
-    if (this.currentMode === 'dev') {
-      return '/portfolio/software';
-    }
-    return '/portfolio';
+    return getPortfolioLink(this.currentMode);
   }
 
-  // 🔥 RESUME LINK
   get resumeLink(): string {
-    if (this.currentMode === 'arch') {
-      return '/resume/architect';
-    }
-    if (this.currentMode === 'dev') {
-      return '/resume/software';
-    }
-    return '/resume';
+    return getResumeLink(this.currentMode);
   }
 
   // 🔥 CONTROL DE SUBMENÚ

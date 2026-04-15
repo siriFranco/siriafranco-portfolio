@@ -1,2 +1,26 @@
 <h1>{{ mode }} works!</h1>
-<p>This is home page only</p>
+
+<!-- 🔥 HOME GENERAL -->
+<div *ngIf="isHome">
+  <h2>Welcome - All content</h2>
+</div>
+
+<!-- 🔥 DEV -->
+<div *ngIf="isDev">
+  <h2>Software Development</h2>
+</div>
+
+<!-- 🔥 ARCH -->
+<div *ngIf="isArch">
+  <h2>Architecture</h2>
+</div>
+
+<!-- 🔥 ARCH + EST -->
+<div *ngIf="isArch && isEstimator">
+  <h3>Estimator Focus</h3>
+</div>
+
+<!-- 🔥 ARCH + PM -->
+<div *ngIf="isArch && isPM">
+  <h3>Project Manager Focus</h3>
+</div>

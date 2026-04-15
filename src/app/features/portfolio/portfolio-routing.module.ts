@@ -8,17 +8,15 @@ import { SoftwareComponent } from './pages/software/software.component';
 const routes: Routes = [
   {
     path: '',
-    component: PortfolioComponent 
+    component: PortfolioComponent
   },
   {
     path: 'architecture',
-    component: ArchitectureComponent,
-    data: { type: 'architecture' } 
+    component: ArchitectureComponent
   },
   {
     path: 'software',
-    component: SoftwareComponent,
-    data: { type: 'software' } 
+    component: SoftwareComponent
   }
 ];
 

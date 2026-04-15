@@ -33,8 +33,8 @@
       <!-- 🔥 Submenu SOLO en modo home -->
       <div class="navbar__sub" *ngIf="shouldShowSubmenu()">
         <a *ngFor="let type of portfolioTypes"
-           [routerLink]="'/portfolio/' + type"
-           (click)="closeMenu()">
+          [routerLink]="['/', currentMode, 'portfolio', type]"
+          (click)="closeMenu()">
           {{ type }}
         </a>
       </div>

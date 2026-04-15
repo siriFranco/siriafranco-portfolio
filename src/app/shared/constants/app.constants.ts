@@ -31,9 +31,9 @@ export function isValidMode(mode: string | null): mode is AppMode {
 }
 
 // ✅ Parser
-export function getModeFromPath(path: string | null): AppMode {
-  if (isValidMode(path)) {
-    return path;
+export function getModeFromPath(path: string | null | undefined): AppMode {
+  if (isValidMode(path ?? null)) {
+    return path as AppMode;
   }
   return 'home';
 }
@@ -56,4 +56,14 @@ export function resolveMode(mode: string | null | undefined): AppMode {
   const normalizedMode = mode ?? null;
 
   return isValidMode(normalizedMode) ? normalizedMode : 'home';
+}
+
+export function getBaseMode(mode: AppMode): BaseMode {
+  return mode.split('-')[0] as BaseMode;
+}
+
+export function getModeExtension(mode: AppMode): ModeExtension | null {
+  return mode.includes('-')
+    ? (mode.split('-')[1] as ModeExtension)
+    : null;
 }

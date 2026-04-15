@@ -7,26 +7,34 @@ import { ResumeComponent } from './features/resume/pages/resume/resume.component
 import { NotFoundComponent } from './features/not-found/not-found.component';
 
 const routes: Routes = [
-  // ✅ 404 primero (FUERA del guard)
+
   {
     path: '404',
     component: NotFoundComponent
   },
 
-  // ✅ rutas con mode
+  // 🔥 MÁS ESPECÍFICAS PRIMERO
+  {
+    path: ':mode/portfolio',
+    canActivate: [modeGuard],
+    loadChildren: () =>
+      import('./features/portfolio/portfolio.module')
+        .then(m => m.PortfolioModule)
+  },
+
+  {
+    path: ':mode/resume',
+    canActivate: [modeGuard],
+    loadChildren: () =>
+      import('./features/resume/resume.module')
+        .then(m => m.ResumeModule)
+  },
+
+  // 🔥 MÁS GENERAL DESPUÉS
   {
     path: ':mode',
     canActivate: [modeGuard],
-    children: [
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'portfolio',
-        component: PortfolioComponent
-      }
-    ]
+    component: HomeComponent
   },
 
   {
@@ -35,7 +43,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  // ✅ wildcard al final
   {
     path: '**',
     redirectTo: '404'
