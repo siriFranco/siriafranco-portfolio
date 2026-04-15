@@ -4,10 +4,19 @@ import { modeGuard } from './shared/guards/mode.guard';
 import { HomeComponent } from './features/home/pages/home/home.component';
 import { PortfolioComponent } from './features/portfolio/pages/portfolio/portfolio.component';
 import { ResumeComponent } from './features/resume/pages/resume/resume.component';
+import { NotFoundComponent } from './features/not-found/not-found.component';
 
 const routes: Routes = [
+  // ✅ 404 primero (FUERA del guard)
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+
+  // ✅ rutas con mode
   {
     path: ':mode',
+    canActivate: [modeGuard],
     children: [
       {
         path: '',
@@ -16,17 +25,20 @@ const routes: Routes = [
       {
         path: 'portfolio',
         component: PortfolioComponent
-      },
-      {
-        path: 'resume',
-        component: ResumeComponent
       }
     ]
   },
+
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+
+  // ✅ wildcard al final
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 
