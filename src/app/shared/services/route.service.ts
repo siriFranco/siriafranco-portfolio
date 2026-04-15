@@ -8,7 +8,7 @@ import { RESUME_ROLES, PORTFOLIO_TYPES, ResumeRole, PortfolioType  } from '../co
 })
 export class RouteService {
 
-  // 🔹 Obtener tipo de portfolio
+/*   // 🔹 Obtener tipo de portfolio
   getPortfolioType(route: ActivatedRoute): Observable<PortfolioType | 'all'> {
     return route.paramMap.pipe(
       map(params => {
@@ -36,5 +36,5 @@ export class RouteService {
         return 'software';
       })
     );
-  }
+  } */
 }

@@ -1,21 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { modeGuard } from './shared/guards/mode.guard';
+import { HomeComponent } from './features/home/pages/home/home.component';
+import { PortfolioComponent } from './features/portfolio/pages/portfolio/portfolio.component';
+import { ResumeComponent } from './features/resume/pages/resume/resume.component';
 
 const routes: Routes = [
   {
+    path: ':mode',
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'portfolio',
+        component: PortfolioComponent
+      },
+      {
+        path: 'resume',
+        component: ResumeComponent
+      }
+    ]
+  },
+  {
     path: '',
-    loadChildren: () =>
-      import('./features/home/home.module').then(m => m.HomeModule)
-  },
-  {
-    path: 'portfolio',
-    loadChildren: () =>
-      import('./features/portfolio/portfolio.module').then(m => m.PortfolioModule)
-  },
-  {
-    path: 'resume',
-    loadChildren: () =>
-      import('./features/resume/resume.module').then(m => m.ResumeModule)
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
 ];
 

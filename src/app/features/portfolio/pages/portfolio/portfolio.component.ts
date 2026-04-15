@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouteService} from 'src/app/shared/services/route.service';
 import { PortfolioType } from 'src/app/shared/constants/app.constants';
+import { AppMode, resolveMode } from 'src/app/shared/constants/app.constants';
 
 @Component({
   selector: 'app-portfolio',
@@ -18,11 +19,12 @@ export class PortfolioComponent implements OnInit {
     private routeService: RouteService
   ) {}
 
-  ngOnInit() {
-    this.routeService.getPortfolioType(this.route)
-      .subscribe(type => {
-        this.viewType = type;
-        console.log('Portfolio view:', type);
-      });
+  mode: AppMode = 'home';
+
+
+  ngOnInit(): void {
+    this.mode = resolveMode(
+      this.route.parent?.snapshot.paramMap.get('mode')
+    );
   }
 }

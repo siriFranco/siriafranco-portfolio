@@ -1,5 +1,12 @@
-export const APP_MODES = ['home', 'dev', 'arch'] as const;
-export type AppMode = typeof APP_MODES[number];
+export const BASE_MODES = ['home', 'dev', 'arch'] as const;
+export const MODE_EXTENSIONS = ['est', 'pm'] as const;
+
+export type BaseMode = typeof BASE_MODES[number];
+export type ModeExtension = typeof MODE_EXTENSIONS[number];
+
+export type AppMode =
+  | BaseMode
+  | `${BaseMode}-${ModeExtension}`;
 
 // ✅ Portfolio
 export const PORTFOLIO_TYPES = ['architecture', 'software'] as const;
@@ -11,7 +18,16 @@ export type ResumeRole = typeof RESUME_ROLES[number];
 
 // ✅ Validación
 export function isValidMode(mode: string | null): mode is AppMode {
-  return APP_MODES.includes(mode as AppMode);
+  if (!mode) return false;
+
+  if (BASE_MODES.includes(mode as BaseMode)) return true;
+
+  const [base, ext] = mode.split('-');
+
+  return (
+    BASE_MODES.includes(base as BaseMode) &&
+    MODE_EXTENSIONS.includes(ext as ModeExtension)
+  );
 }
 
 // ✅ Parser
@@ -24,4 +40,20 @@ export function getModeFromPath(path: string | null): AppMode {
 
 export function isResumeRole(type: string | null): type is ResumeRole {
   return RESUME_ROLES.includes(type as ResumeRole);
+}
+
+export const MODE_TO_PORTFOLIO: Record<BaseMode, PortfolioType[]> = {
+  home: ['architecture', 'software'],
+  dev: ['software'],
+  arch: ['architecture'],
+};
+
+export function getAllowedPortfolioTypes(mode: AppMode): PortfolioType[] {
+  return MODE_TO_PORTFOLIO[mode.split('-')[0] as BaseMode] ?? [];
+}
+
+export function resolveMode(mode: string | null | undefined): AppMode {
+  const normalizedMode = mode ?? null;
+
+  return isValidMode(normalizedMode) ? normalizedMode : 'home';
 }

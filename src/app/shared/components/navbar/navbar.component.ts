@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { 
-  APP_MODES,
   AppMode,
   PORTFOLIO_TYPES,
   RESUME_ROLES,
@@ -40,9 +39,9 @@ export class NavbarComponent implements OnInit {
         const firstSegment = segments[1];
 
         // 🔥 SOLO actualizar modo si es válido
-        if (APP_MODES.includes(firstSegment as AppMode)) {
+/*         if (APP_MODES.includes(firstSegment as AppMode)) {
           this.currentMode = firstSegment as AppMode;
-        }
+        } */
 
         // 🔥 contexto (esto sí siempre se actualiza)
         this.currentContext = {
