@@ -1,36 +1,125 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RESUME_ROLES, ResumeRole } from 'src/app/shared/constants/app.constants';
+
+import {
+  AppMode,
+  BaseMode,
+  ModeExtension,
+  getModeFromPath,
+  getBaseMode,
+  getModeExtension,
+  resolveResumeRole
+} from 'src/app/shared/constants/app.constants';
+
+import {
+  RESUME_JOBS,
+  RESUME_META,
+  ResumeJob,
+  ResumeMeta,
+  RoleMode
+} from '../../config/resume.config';
 
 @Component({
   selector: 'app-resume',
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.scss']
+  templateUrl: './resume.component.html'
 })
 export class ResumeComponent implements OnInit {
 
-  // ✅ Default dinámico desde constantes
-  role: ResumeRole = RESUME_ROLES[0];
+  // 🔥 MODE
+  mode: AppMode = 'home';
+
+  // 🔥 derivados (tipados desde app.constants)
+  base: BaseMode = 'home';
+  extension: ModeExtension | null = null;
+
+  // 🔥 data
+  meta!: ResumeMeta;
+  jobs: ResumeJob[] = RESUME_JOBS;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const type = params.get('type');
 
-      // ✅ Validación contra constantes
-      if (this.isResumeRole(type)) {
-        this.role = type;
-      } else {
-        this.role = RESUME_ROLES[0]; // fallback dinámico
-      }
+    const modeParam = this.route.snapshot.paramMap.get('mode');
 
-      console.log('Current role:', this.role);
-    });
+    this.mode = getModeFromPath(modeParam);
+
+    this.base = getBaseMode(this.mode);
+    this.extension = getModeExtension(this.mode);
+
+    this.meta = RESUME_META[this.mode] ?? RESUME_META['home']!;
+
+    console.log('🟡 RESUME INIT');
+    console.log('URL param:', modeParam);
+    console.log('Mode:', this.mode);
+    console.log('Base:', this.base);
+    console.log('Extension:', this.extension);
+    console.log('CurrentKey:', this.currentKey);
   }
 
-  // ✅ Type guard limpio (sin repetir lógica)
-  private isResumeRole(type: string | null): type is ResumeRole {
-    return RESUME_ROLES.includes(type as ResumeRole);
+  // 🔥 DESCRIPCIÓN DINÁMICA (sin hardcode)
+getDescription(job: ResumeJob): string[] {
+
+  const role = this.extension ?? this.base;
+
+  // 🔥 1. MULTI-ROLE
+  const multi = job.descriptions.roles?.find(r =>
+    r.roles.includes(role as any)
+  );
+
+  if (multi) return multi.content;
+
+  // 🔥 2. EXTENSION
+  if (this.extension && job.descriptions[this.extension]) {
+    return job.descriptions[this.extension]!;
   }
+
+  // 🔥 3. BASE (solo si es dev o arch)
+  if (this.base === 'dev' && job.descriptions.dev) {
+    return job.descriptions.dev;
+  }
+
+  if (this.base === 'arch' && job.descriptions.arch) {
+    return job.descriptions.arch;
+  }
+
+  // 🔥 4. DEFAULT
+  return job.descriptions.default;
+}
+
+get currentKey(): AppMode {
+  return this.extension
+    ? `${this.base}-${this.extension}`
+    : this.base;
+}
+
+get filteredJobs(): ResumeJob[] {
+
+  console.log('🧪 FILTER DEBUG');
+  console.log('Mode:', this.mode);
+  console.log('Base:', this.base);
+  console.log('Extension:', this.extension);
+  console.log('CurrentKey:', this.currentKey);
+
+  return this.jobs.filter(job => {
+
+    const visible = job.visibleIn;
+
+    console.log(`\n🔎 Job: ${job.role}`);
+    console.log('visibleIn:', visible);
+
+    if (!visible) {
+      console.log('➡️ no visibleIn → SHOW');
+      return true;
+    }
+
+    const matches = visible.includes(this.currentKey);
+
+    console.log('checking:', this.currentKey);
+    console.log('match:', matches);
+
+    return matches;
+  });
+}
+
 }

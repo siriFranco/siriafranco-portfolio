@@ -51,15 +51,6 @@
         Resume
       </a>
 
-      <!-- 🔥 Submenu SOLO en modo home -->
-      <div class="navbar__sub" *ngIf="shouldShowSubmenu()">
-        <a *ngFor="let role of resumeRoles"
-           [routerLink]="'/resume/' + role"
-           (click)="closeMenu()">
-          {{ role }}
-        </a>
-      </div>
-
     </div>
 
   </div>
