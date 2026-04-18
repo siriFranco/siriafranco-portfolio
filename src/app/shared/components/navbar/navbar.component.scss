@@ -6,7 +6,7 @@
   align-items: center;
   background: #292a34;
   color: white;
-  padding: 14px clamp(16px, 2vw, 32px);
+  padding: 12px clamp(10px, 1vw, 20px);
 
   /* 🔥 Glow difuso (tipo Siri) */
   &::before {
@@ -15,7 +15,7 @@
     bottom: -4px; // 🔥 sobresale un poco
     left: 0;
     width: 100%;
-    height: 8px;
+    height: 15px;
 
     background: linear-gradient(
       90deg,
@@ -40,7 +40,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 0.5px;
 
     background: linear-gradient(
       90deg,
@@ -73,7 +73,7 @@
   }
 
   &__toggle {
-    font-size: 24px;
+    //font-size: 24px;
     cursor: pointer;
   }
 
@@ -102,7 +102,6 @@
     a {
       color: white;
       text-decoration: none;
-      margin: 10px 0;
       transition: opacity 0.2s ease;
 
       &:hover {
@@ -137,7 +136,7 @@
     margin-left: 10px;
 
     a {
-      font-size: 14px;
+      //font-size: 14px;
       padding-left: 8px;
       opacity: 0.65;
       margin: 4px 0;
