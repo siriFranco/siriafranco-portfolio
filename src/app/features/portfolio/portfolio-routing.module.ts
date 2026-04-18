@@ -9,14 +9,6 @@ const routes: Routes = [
   {
     path: '',
     component: PortfolioComponent
-  },
-  {
-    path: 'architecture',
-    component: ArchitectureComponent
-  },
-  {
-    path: 'software',
-    component: SoftwareComponent
   }
 ];
 

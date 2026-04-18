@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouteService} from 'src/app/shared/services/route.service';
 import { PortfolioType } from 'src/app/shared/constants/app.constants';
-import { AppMode, resolveMode } from 'src/app/shared/constants/app.constants';
+import { AppMode, getBaseMode } from 'src/app/shared/constants/app.constants';
 import { getModeFromPath } from 'src/app/shared/constants/app.constants';
 
 @Component({
@@ -13,24 +13,43 @@ import { getModeFromPath } from 'src/app/shared/constants/app.constants';
 
 export class PortfolioComponent implements OnInit {
 
-  mode: AppMode = 'home'; // ✅ AGREGAR ESTO
-  hasChildRoute = false;
+  mode!: AppMode;
+  base!: string;
+
+  showArchitecture = false;
+  showSoftware = false;
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.mode = this.route.snapshot.paramMap.get('mode') as AppMode;
+    this.base = getBaseMode(this.mode);
 
-    // 🔥 obtener mode desde la URL
-    const modeParam = this.route.snapshot.paramMap.get('mode');
+    this.resolveView();
+  }
 
-    this.mode = getModeFromPath(modeParam);
+  resolveView() {
+    if (this.base === 'arch') {
+      this.showArchitecture = true;
+    }
 
-    // 🔥 detectar si hay subruta
-    this.hasChildRoute = this.route.firstChild !== null;
+    if (this.base === 'dev') {
+      this.showSoftware = true;
+    }
 
-    // 🧪 logs
-    console.log('🟣 PORTFOLIO COMPONENT');
-    console.log('Mode:', this.mode);
-    console.log('Has child route:', this.hasChildRoute);
+    if (this.base === 'home') {
+      this.showArchitecture = true;
+      this.showSoftware = true;
+    }
+  }
+
+
+  ngAfterViewInit() {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const el = document.getElementById(fragment);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 }

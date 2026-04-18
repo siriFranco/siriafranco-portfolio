@@ -30,7 +30,6 @@ const routes: Routes = [
         .then(m => m.ResumeModule)
   },
 
-  // 🔥 MÁS GENERAL DESPUÉS
   {
     path: ':mode',
     canActivate: [modeGuard],
@@ -50,7 +49,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',          // 🔥 clave
+      scrollPositionRestoration: 'enabled' // 🔥 opcional pero recomendado
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
