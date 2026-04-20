@@ -1,16 +1,1 @@
-<h1>{{ meta.title }}</h1>
-<p>{{ meta.summary }}</p>
-
-<div *ngFor="let job of filteredJobs">
-
-  <h3>{{ job.role }}</h3>
-  <p><strong>{{ job.period }}</strong></p>
-  <p><strong>{{ job.company }}</strong></p>
-
-  <ul>
-    <li *ngFor="let line of getDescription(job)">
-      {{ line }}
-    </li>
-  </ul>
-
-</div>
+<app-workExperience></app-workExperience>

@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ResumeRoutingModule } from './resume-routing.module';
+import { WorkExperienceComponent } from './pages/workExperience/workExperience.component';
 import { ResumeComponent } from './pages/resume/resume.component';
 
 
 @NgModule({
   declarations: [
-    ResumeComponent
+    ResumeComponent,
+    WorkExperienceComponent
   ],
   imports: [
     CommonModule,
