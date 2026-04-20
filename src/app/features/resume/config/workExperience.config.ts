@@ -29,11 +29,6 @@ export type ResumeJob = {
 
 export type DescriptionKey = 'home' | 'dev' | 'arch' | 'est' | 'pm';
 
-const DEV_META: ResumeMeta = {
-  title: 'Fullstack Developer',
-  summary: `Software Developer experienced in building and maintaining web applications...`
-};
-
 // =====================
 // 🔥 META
 // ========

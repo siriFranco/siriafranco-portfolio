@@ -21,7 +21,7 @@ import {
 import { ABOUT_ME_CONFIG } from '../../config/aboutme.config';
 
 @Component({
-  selector: 'app-workExperience',
+  selector: 'app-work-experience',
   templateUrl: './workExperience.component.html',
   styleUrls: ['./workExperience.component.scss']
 })

@@ -1,0 +1,55 @@
+<section class="certifications">
+  <h2>Certifications</h2>
+
+  <div *ngFor="let type of types" class="certifications__group">
+    <h3>{{ type | titlecase }}</h3>
+
+    <div class="certifications__grid">
+      
+      <div 
+        *ngFor="let cert of groupedCertifications[type]" 
+        class="cert-card"
+        (click)="openCert(cert)"
+      >
+        
+        <div class="cert-card__content">
+          <h4 class="cert-card__title">{{ cert.title }}</h4>
+
+          <p class="cert-card__meta">
+            {{ cert.issuer }} • {{ cert.duration }}
+          </p>
+
+        </div>
+
+        <!-- 👇 Tooltip -->
+        <div 
+            class="cert-tooltip" 
+            *ngIf="cert.description"
+            (click)="$event.stopPropagation()"
+            >
+            <strong>{{ cert.year }}</strong>
+            <p>{{ cert.description }}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 👇 MODAL (mobile) -->
+  <div class="cert-modal" *ngIf="selectedCert" (click)="closeCert()">
+    
+    <div class="cert-modal__content" (click)="$event.stopPropagation()">
+      
+      <button class="cert-modal__close" (click)="closeCert()">✕</button>
+
+      <h3>{{ selectedCert.title }}</h3>
+      <p>{{ selectedCert.issuer }} • {{ selectedCert.year }}</p>
+      <p *ngIf="selectedCert.duration">{{ selectedCert.duration }}</p>
+
+      <p>{{ selectedCert.description }}</p>
+
+    </div>
+  </div>
+
+</section>
