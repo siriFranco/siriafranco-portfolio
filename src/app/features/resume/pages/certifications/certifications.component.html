@@ -21,6 +21,20 @@
               {{ cert.issuer }} • {{ cert.duration }}
             </p>
           </div>
+
+          <!-- 👇 LINK (desktop) -->
+          <a 
+            *ngIf="cert.link"
+            [href]="cert.link"
+            target="_blank"
+            rel="noopener"
+            class="cert-card__link"
+            (click)="$event.stopPropagation()"
+          >
+            <span class="material-symbols-outlined">
+              license
+            </span>
+          </a>
         </div>
 
         <!-- 👇 TOOLTIP GLOBAL -->
@@ -47,16 +61,44 @@
 
   <!-- 👇 MODAL (mobile) -->
   <div class="cert-modal" *ngIf="selectedCert" (click)="closeCert()">
-    
+  
     <div class="cert-modal__content" (click)="$event.stopPropagation()">
       
       <button class="cert-modal__close" (click)="closeCert()">✕</button>
 
       <h3>{{ selectedCert.title }}</h3>
-      <p>{{ selectedCert.issuer }} • {{ selectedCert.year }}</p>
-      <p *ngIf="selectedCert.duration">{{ selectedCert.duration }}</p>
+
+      <p>
+        {{ selectedCert.issuer }} • {{ selectedCert.year }}
+      </p>
+
+      <p *ngIf="selectedCert.duration">
+        {{ selectedCert.duration }}
+      </p>
 
       <p>{{ selectedCert.description }}</p>
+
+      <!-- 👇 AGREGA ESTO -->
+      <div 
+        class="tooltip__skills" 
+        *ngIf="selectedCert.skills?.length"
+      >
+        <span *ngFor="let skill of selectedCert.skills">
+          {{ skill }}
+        </span>
+      </div>
+
+            <a 
+        *ngIf="selectedCert.link"
+        [href]="selectedCert.link"
+        target="_blank"
+        rel="noopener"
+        class="cert-modal__link"
+      >
+        <span class="material-symbols-outlined">
+          license
+        </span>
+      </a>
 
     </div>
   </div>
