@@ -1,10 +1,10 @@
 
-export type CertificationType = 'tech' | 'management';
+export type CertificationType = 'tech' | 'management' | 'architecture';
 
 export interface Certification {
   title: string;
   issuer: string;
-  year: string;
+  year?: string;
   duration?: string;
   description?: string;
   skills?: string[];
@@ -13,6 +13,18 @@ export interface Certification {
 }
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Bachelor’s Degree in Architecture',
+    issuer: 'Universidad de Sonora',
+    type: 'architecture',
+    description: 'Comprehensive training in architectural design, construction, and project planning.',
+    skills: [
+      'Architectural Design',
+      'AutoCAD',
+      'Project Planning',
+      'Construction'
+    ]
+  },
   {
     title: 'Java Full Stack Developer Program',
     issuer: 'Generation México',
