@@ -143,3 +143,20 @@
   cursor: pointer;
 }
 
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+  .certifications {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+  }
+
+  .cert-card {
+    padding: 0.5rem;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+}

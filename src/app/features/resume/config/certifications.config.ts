@@ -1,5 +1,16 @@
 
-export type CertificationType = 'tech' | 'management' | 'architecture';
+export type CertificationType =
+  'general'
+  | 'management'
+  | 'tech'
+  | 'ai'
+  | 'backend'
+  | 'data'
+  | 'frontend'
+  | 'design'
+  | 'platforms'
+  | 'architecture'
+  ;
 
 export interface Certification {
   title: string;
@@ -26,31 +37,19 @@ export const CERTIFICATIONS: Certification[] = [
     ]
   },
   {
-    title: 'Java Full Stack Developer Program',
-    issuer: 'Generation México',
-    year: '2023',
-    duration: '480h',
-    type: 'tech',
-    description: 'Full stack training program focused on Java development, backend and frontend integration, and professional skills for software development.',
-    skills: [
-      'HTML',
-      'CSS',
-      'JavaScript',
-      'Java',
-      'Spring Boot',
-      'Soft Skills'
-    ],
-    link: 'https://drive.google.com/file/d/1iHhCBdJ1twx-ba9wA9vq-kd0F8c2RTRp/view',
-  },
-/*   {
-    title: 'Angular - The Complete Guide',
-    issuer: 'Udemy',
+    title: 'English Certificate C2',
+    issuer: 'EF SET',
     year: '2024',
-    duration: '40h',
-    type: 'tech',
-    description: 'Advanced Angular concepts and RxJS.'
-  }, */
-  {
+    type: 'general',
+    description: 'Certified English proficiency level based on EF SET standardized test.',
+    skills: [
+      'English',
+      'Communication'
+    ],
+    link: 'https://efset.org/cert/58w2qu'
+  },
+  // management
+    {
     title: 'Master Emotional Intelligence in the Workplace',
     issuer: 'Stuart Wesselby',
     year: '2026',
@@ -109,5 +108,277 @@ export const CERTIFICATIONS: Certification[] = [
       'Stakeholders',
       'Governance'
     ]
-  }
+  },
+  // TECH
+  
+  {
+    title: 'Java Full Stack Developer Program',
+    issuer: 'Generation México',
+    year: '2023',
+    duration: '480h',
+    type: 'tech',
+    description: 'Full stack training program focused on Java development, backend and frontend integration, and professional skills for software development.',
+    skills: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'Java',
+      'Spring Boot',
+      'Soft Skills'
+    ],
+    link: 'https://drive.google.com/file/d/1iHhCBdJ1twx-ba9wA9vq-kd0F8c2RTRp/view',
+  },
+  // DATA
+  {
+    title: 'Data Analytics Professional Certificate',
+    issuer: 'Google',
+    year: '2025',
+    duration: '240h',
+    type: 'data',
+    description: 'Data analysis with spreadsheets, SQL, Tableau, and R to drive data-based decisions.',
+    skills: [
+      'Data Analysis',
+      'SQL',
+      'Tableau',
+      'R',
+      'Data Visualization'
+    ],
+    link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/R9TU53GZ21J1'
+  },
+{
+  title: 'Linear Algebra – Advanced Data Science Bootcamp',
+  issuer: 'Código Facilito',
+  year: '2024',
+  duration: '2h',
+  type: 'data',
+  description: 'Linear algebra foundations applied to data science and analytics.',
+  skills: [
+    'Linear Algebra',
+    'Data Science',
+    'Mathematics'
+  ],
+  link: 'https://drive.google.com/file/d/1_5eC-RMM_dGYdg4x1Nct1KNnkuY9pcqi/view'
+},
+  // 🔥 NUEVOS (AI)
+{
+  title: 'Introduction to Artificial Intelligence',
+  issuer: 'Iberoamerican Tech Foundation',
+  year: '2026',
+  type: 'ai',
+  description: 'Foundations of AI and prompt usage for practical applications.',
+  skills: [
+    'Artificial Intelligence',
+    'Prompt Engineering'
+  ],
+  link: 'https://campus.iberotech.org/pluginfile.php/1/tool_certificate/issues/1775896141/8437625289SF.pdf'
+},
+{
+  title: 'Introduction to Artificial Intelligence Engr',
+  issuer: 'Iberoamerican Tech Foundation',
+  year: '2026',
+  type: 'ai',
+  description: 'Core AI engineering concepts and practical prompt-based workflows.',
+  skills: [
+    'Artificial Intelligence',
+    'Prompt Engineering'
+  ],
+  link: 'https://campus.iberotech.org/pluginfile.php/1/tool_certificate/issues/1772051030/7711638433SF.pdf'
+},
+{
+  title: 'AI for Software Development',
+  issuer: 'Generation México',
+  year: '2026',
+  type: 'ai',
+  description: 'Using AI tools to generate, test, and improve code in real workflows.',
+  skills: [
+    'AI-Assisted Development',
+    'Prompt Engineering',
+    'Software Development'
+  ],
+  link: 'https://www.credly.com/badges/f95a6e89-9508-4817-bd50-ff68a95be859'
+},
+
+//backend backend
+{
+  title: 'Professional Docker Course',
+  issuer: 'Código Facilito',
+  year: '2024',
+  duration: '4h',
+  type: 'backend',
+  description: 'Containerization with Docker for development and deployment workflows.',
+  skills: [
+    'Docker',
+    'Containers',
+    'DevOps'
+  ],
+  link: 'https://drive.google.com/file/d/1thBzgMt5mKZUDcUYkf4Mh4Lbrzkhxuy4/view'
+},
+{
+  title: 'Spring Framework & Spring Boot Course',
+  issuer: 'Código Facilito',
+  year: '2023',
+  duration: '4h',
+  type: 'backend',
+  description: 'Backend development with Spring and Spring Boot for Java applications.',
+  skills: [
+    'Java',
+    'Spring Boot',
+    'Backend Development'
+  ],
+  link: 'https://drive.google.com/file/d/1JKuXy7-wsU6tUI5IVTqW1byaTykmNl45/view'
+},
+{
+  title: 'Database Professional Course',
+  issuer: 'Código Facilito',
+  year: '2023',
+  duration: '5.5h',
+  type: 'backend',
+  description: 'Database fundamentals, queries, and data management concepts.',
+  skills: [
+    'Databases',
+    'SQL',
+    'Data Management'
+  ],
+  link: 'https://drive.google.com/file/d/1TjTh3t9LP6dIzC1d9KTsc9_EEiqJRsDp/view'
+},
+{
+  title: 'JavaScript Code Challenges',
+  issuer: 'LinkedIn Learning',
+  year: '2023',
+  duration: '1h',
+  type: 'backend',
+  description: 'Practice solving JavaScript problems to improve logic and coding skills.',
+  skills: [
+    'JavaScript',
+    'Problem Solving'
+  ],
+  link: 'https://www.linkedin.com/learning/certificates/a2e7d7be7702fb15e9ebb8f7ff5fece5f97446e4f5577f0b37ab7b9b92e7664c'
+},
+{
+  title: 'Node.js Essential Training',
+  issuer: 'LinkedIn Learning',
+  year: '2023',
+  duration: '1.3h',
+  type: 'backend',
+  description: 'Core Node.js concepts for building backend services and APIs.',
+  skills: [
+    'Node.js',
+    'Backend Development',
+    'APIs'
+  ],
+  link: 'https://www.linkedin.com/learning/certificates/608970a011686c91d6a3323118398968dfbde35790d522ca965909bf56f46304'
+},
+{
+  title: 'Java Professional Course',
+  issuer: 'Código Facilito',
+  year: '2023',
+  duration: '6h',
+  type: 'backend',
+  description: 'Core Java programming concepts and object-oriented development.',
+  skills: [
+    'Java',
+    'OOP',
+    'Software Development'
+  ],
+  link: 'https://drive.google.com/file/d/1I2RgpOcfZuw91SpQNx7r-P-gz5Ft2zam/view'
+},
+
+//frontend frontend
+{
+  title: 'Oracle Frontend Development Program (React)',
+  issuer: 'Oracle One Next Education',
+  year: '2024',
+  duration: '313h',
+  type: 'frontend',
+  description: 'Frontend development with React, building modern and responsive web applications.',
+  skills: [
+    'React',
+    'JavaScript',
+    'Frontend Development',
+    'Responsive Design',
+    'Web Applications'
+  ],
+  link: 'https://drive.google.com/file/d/1gDgZSXnVM_qXOIXqiPL3_zPtPrHGAE4N/view'
+},
+{
+  title: 'UX Design Professional Certificate',
+  issuer: 'Google',
+  year: '2024',
+  duration: '200h',
+  type: 'design',
+  description: 'UX process end-to-end: research, wireframes, prototypes, and user testing.',
+  skills: [
+    'UX Design',
+    'Wireframing',
+    'Prototyping',
+    'User Research',
+    'Usability Testing'
+  ],
+  link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/61Y044KG9Y5H'
+},
+// 🔥 NUEVOS
+
+{
+  title: 'Software Architecture Fundamentals',
+  issuer: 'Código Facilito',
+  year: '2025',
+  duration: '2h',
+  type: 'tech',
+  description: 'Core software architecture concepts and system design basics.',
+  skills: [
+    'Software Architecture',
+    'System Design'
+  ],
+  link: 'https://drive.google.com/file/d/1iJ38tsPMH1nkzNUVFMqfqCh8DC6QjjDR/view'
+},
+{
+  title: 'Prompt Engineering Course',
+  issuer: 'Código Facilito',
+  year: '2025',
+  duration: '5h',
+  type: 'ai',
+  description: 'Prompt design techniques for effective AI interaction and outputs.',
+  skills: [
+    'Prompt Engineering',
+    'Artificial Intelligence'
+  ],
+  link: 'https://drive.google.com/file/d/1X0dBvLI3IY1s8URLN7srKrj7PDULiG9O/view'
+},
+{
+  title: 'React Professional Course',
+  issuer: 'Código Facilito',
+  year: '2023',
+  duration: '9.5h',
+  type: 'frontend',
+  description: 'Building modern web apps using React components, state, and hooks.',
+  skills: [
+    'React',
+    'JavaScript',
+    'Frontend Development'
+  ],
+  link: 'https://drive.google.com/file/d/1h9UEjbxvUO9E1xztrACVqGhNnnFM17GV/view'
+},
+/*   {
+    title: 'Angular - The Complete Guide',
+    issuer: 'Udemy',
+    year: '2024',
+    duration: '40h',
+    type: 'tech',
+    description: 'Advanced Angular concepts and RxJS.'
+  }, */
+  //platforms platforms
+  {
+    title: 'Mendix Rapid Developer Certification',
+    issuer: 'Mendix',
+    year: '2024',
+    duration: '20h',
+    type: 'platforms',
+    description: 'Low-code development skills using Mendix platform for rapid applications.',
+    skills: [
+      'Mendix',
+      'Low-Code',
+      'Application Development'
+    ],
+    link: 'https://drive.google.com/file/d/10_lr-my4T5pX9hmHwEVL2R_JPPEMRP2R/view'
+  },
 ];
