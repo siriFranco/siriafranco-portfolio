@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getModeFromPath } from 'src/app/shared/constants/app.constants';
 import { AppMode, resolveMode, getBaseMode, getModeExtension } from 'src/app/shared/constants/app.constants';
 import { ActivatedRoute } from '@angular/router';
+import { HOME_CONFIG } from '../../config/home.config';
 
 @Component({
   selector: 'app-home',
@@ -47,5 +48,9 @@ export class HomeComponent implements OnInit {
       isEstimator: this.isEstimator,
       isPM: this.isPM
     });
+  }
+
+    get homeConfig() {
+    return HOME_CONFIG[this.mode] ?? HOME_CONFIG.home!;
   }
 }

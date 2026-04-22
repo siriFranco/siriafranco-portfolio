@@ -1,26 +1,26 @@
-<h1>{{ mode }} works!</h1>
+<section class="home container">
 
-<!-- 🔥 HOME GENERAL -->
-<div *ngIf="isHome">
-  <h2>Welcome - All content</h2>
-</div>
+  <!-- 👤 HERO / ABOUT (equivalente a job header) -->
+  <div class="home__header">
 
-<!-- 🔥 DEV -->
-<div *ngIf="isDev">
-  <h2>Software Development</h2>
-</div>
+    <div class="home__meta">
+      <h1>{{ homeConfig.title }}</h1>
+      <h3 class="home__subtitle">
+        {{ homeConfig.subtitle }}
+      </h3>
+    </div>
 
-<!-- 🔥 ARCH -->
-<div *ngIf="isArch">
-  <h2>Architecture</h2>
-</div>
+  </div>
 
-<!-- 🔥 ARCH + EST -->
-<div *ngIf="isArch && isEstimator">
-  <h3>Estimator Focus</h3>
-</div>
+  <br>
 
-<!-- 🔥 ARCH + PM -->
-<div *ngIf="isArch && isPM">
-  <h3>Project Manager Focus</h3>
-</div>
+  <!-- 🧭 DESCRIPTION (equivalente a job descriptions) -->
+  <div class="home__content">
+
+    <p *ngFor="let line of homeConfig.description">
+      {{ line }}
+    </p>
+
+  </div>
+
+</section>
