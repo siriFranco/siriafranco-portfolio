@@ -5,13 +5,15 @@ import { ResumeRoutingModule } from './resume-routing.module';
 import { WorkExperienceComponent } from './pages/workExperience/workExperience.component';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 @NgModule({
   declarations: [
     ResumeComponent,
     CertificationsComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

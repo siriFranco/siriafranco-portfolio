@@ -2,40 +2,39 @@
   <h2>Education and certifications</h2>
 
   <div *ngFor="let type of types" class="certifications__group">
-    <h3>{{ type | titlecase }}</h3>
-
+    <h3 style="margin-bottom: 0.5rem">{{ type | titlecase }}</h3>
     <div class="certifications__grid">
       
       <div 
         *ngFor="let cert of groupedCertifications[type]" 
         class="tooltip-container"
-        (click)="openCert(cert)"
       >
+      <div 
+        class="cert-card"
+        (click)="handleCardClick(cert)"
+      >
+        <div class="cert-card__content">
+          <h4 class="cert-card__title">{{ cert.title }}</h4>
 
-        <!-- 👇 TU CARD -->
-        <div class="cert-card">
-          <div class="cert-card__content">
-            <h4 class="cert-card__title">{{ cert.title }}</h4>
-
-            <p class="cert-card__meta">
-              {{ cert.issuer }} • {{ cert.duration }}
-            </p>
-          </div>
-
-          <!-- 👇 LINK (desktop) -->
-          <a 
-            *ngIf="cert.link"
-            [href]="cert.link"
-            target="_blank"
-            rel="noopener"
-            class="cert-card__link"
-            (click)="$event.stopPropagation()"
-          >
-            <span class="material-symbols-outlined">
-              license
-            </span>
-          </a>
+          <p class="cert-card__meta">
+            {{ cert.issuer }} • {{ cert.duration }}
+          </p>
         </div>
+
+        <!-- ICONO -->
+        <a 
+          *ngIf="cert.link"
+          [attr.href]="!isMobile() ? cert.link : null"
+          [attr.target]="!isMobile() ? '_blank' : null"
+          [attr.rel]="!isMobile() ? 'noopener' : null"
+          class="cert-card__link"
+          (click)="handleIconClick($event, cert)"
+        >
+          <span class="material-symbols-outlined cert-card__icon">
+            license
+          </span>
+        </a>
+      </div>
 
         <!-- 👇 TOOLTIP GLOBAL -->
         <div 
@@ -88,7 +87,7 @@
         </span>
       </div>
 
-            <a 
+      <a 
         *ngIf="selectedCert.link"
         [href]="selectedCert.link"
         target="_blank"

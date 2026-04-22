@@ -1,0 +1,43 @@
+<h1>{{ meta.title }}</h1>
+<p>{{ meta.summary }}</p>
+<br>
+
+<div class="contact-grid">
+
+  <div *ngFor="let item of filteredContact" class="contact-item">
+
+    <p class="contact-value">
+
+      <!-- ICON -->
+      <i [class]="item.icon" class="icon"></i>
+
+      <!-- EMAIL (copy) -->
+      <span *ngIf="item.copy"
+            (click)="copy(item)"
+            class="clickable">
+        {{ getValue(item) }}
+      </span>
+
+      <!-- LINK -->
+      <a *ngIf="item.link && !item.copy"
+         [href]="item.link"
+         target="_blank"
+         rel="noopener noreferrer">
+        {{ item.value }}
+      </a>
+
+      <!-- TEXT -->
+      <span *ngIf="!item.link && !item.copy">
+        {{ item.value }}
+      </span>
+
+      <!-- TOOLTIP -->
+      <span *ngIf="copied === getValue(item)" class="tooltip">
+        Copied!
+      </span>
+
+    </p>
+
+  </div>
+
+</div>

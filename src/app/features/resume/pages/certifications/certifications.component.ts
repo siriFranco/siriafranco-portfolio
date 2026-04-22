@@ -8,29 +8,54 @@ import { CERTIFICATIONS, Certification, CertificationType } from '../../config/c
 
 export class CertificationsComponent {
 
-groupedCertifications: Record<string, Certification[]> = {};
-selectedCert: Certification | null = null;
+  groupedCertifications: Record<string, Certification[]> = {};
+  selectedCert: Certification | null = null;
 
-openCert(cert: Certification) {
-  // Solo abrir modal en pantallas pequeñas
-  if (window.innerWidth < 768) {
-    this.selectedCert = cert;
-  }
-}
-
-closeCert() {
-  this.selectedCert = null;
-}
-ngOnInit() {
-  CERTIFICATIONS.forEach(cert => {
-    if (!this.groupedCertifications[cert.type]) {
-      this.groupedCertifications[cert.type] = [];
+  openCert(cert: Certification) {
+    // Solo abrir modal en pantallas pequeñas
+    if (window.innerWidth < 768) {
+      this.selectedCert = cert;
     }
-    this.groupedCertifications[cert.type].push(cert);
-  });
-}
+  }
 
-get types(): string[] {
-  return Object.keys(this.groupedCertifications);
-}
+  closeCert() {
+    this.selectedCert = null;
+  }
+  ngOnInit() {
+    CERTIFICATIONS.forEach(cert => {
+      if (!this.groupedCertifications[cert.type]) {
+        this.groupedCertifications[cert.type] = [];
+      }
+      this.groupedCertifications[cert.type].push(cert);
+    });
+  }
+
+  get types(): string[] {
+    return Object.keys(this.groupedCertifications);
+  }
+
+  isMobile(): boolean {
+    return window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  handleIconClick(event: Event, cert: any) {
+    if (this.isMobile()) {
+      // ❌ Bloquea navegación en mobile
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Opcional: abrir modal también
+      this.openCert(cert);
+    }
+  }
+
+  handleCardClick(cert: any) {
+    if (this.isMobile()) {
+      this.openCert(cert);
+    } else {
+      if (cert.link) {
+        window.open(cert.link, '_blank');
+      }
+    }
+  }
 }

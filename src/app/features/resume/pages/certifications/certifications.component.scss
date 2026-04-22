@@ -25,6 +25,7 @@
   padding: 0.8rem;
   border-radius: 10px;
 
+  text-decoration: none;
   background: #f5f5f5;
   color: #222;
 
@@ -143,6 +144,22 @@
   cursor: pointer;
 }
 
+.cert-card__icon {
+  color: #1976d2; 
+}
+
+.cert-modal__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.cert-modal__link .material-symbols-outlined {
+  color: #2563eb;
+}
+
 
 /* 📱 MOBILE */
 @media (max-width: 600px) {
@@ -158,5 +175,10 @@
     border-radius: 8px;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+  }
+
+  .cert-card__link {
+    text-decoration: none;
+    cursor: pointer;
   }
 }

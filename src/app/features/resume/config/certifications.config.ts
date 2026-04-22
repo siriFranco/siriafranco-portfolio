@@ -285,20 +285,20 @@ export const CERTIFICATIONS: Certification[] = [
 
 //frontend frontend
 {
-  title: 'Oracle Frontend Development Program (React)',
+  title: 'Frontend Development Program (React)',
   issuer: 'Oracle One Next Education',
   year: '2024',
   duration: '313h',
   type: 'frontend',
-  description: 'Frontend development with React, building modern and responsive web applications.',
+  description: 'Focused on JavaScript, React, APIs, and Git. Built real-world projects applying responsive design, problem-solving, and user-centered development practices.',
   skills: [
-    'React',
     'JavaScript',
-    'Frontend Development',
-    'Responsive Design',
-    'Web Applications'
+    'React',
+    'SQL',
+    'Git',
+    'Responsive Design'
   ],
-  link: 'https://drive.google.com/file/d/1gDgZSXnVM_qXOIXqiPL3_zPtPrHGAE4N/view'
+  link: 'https://app.aluracursos.com/program/certificate/1c558afe-376d-4385-bbe5-70aa7b00758d?lang'
 },
 {
   title: 'UX Design Professional Certificate',

@@ -122,7 +122,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     }
   },
   {
-    role: 'Fullstack Developer (Training Program)',
+    role: 'Fullstack Developer',
     company: 'Generation',
     period: 'Mar 2023 – Jun 2023',
     visibleIn: ['home', 'dev'],
