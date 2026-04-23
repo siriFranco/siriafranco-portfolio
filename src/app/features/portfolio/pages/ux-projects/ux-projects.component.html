@@ -1,0 +1,22 @@
+<section class="ux-projects">
+  <h1>UX Projects</h1>
+  <p>Selected work focused on user experience, research and product design.</p>
+<br>
+
+  <div class="ux-projects__grid">
+    <div class="project-card" *ngFor="let project of projects">
+
+      <img 
+        class="project-card__image" 
+        [src]="project.image" 
+        [alt]="project.title" 
+      />
+
+      <div class="project-card__content">
+        <h3 class="project-card__title">{{ project.title }}</h3>
+        <p class="project-card__description">{{ project.description }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>

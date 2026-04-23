@@ -7,6 +7,7 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { ArchitectureComponent } from './pages/architecture/architecture.component';
 import { SoftwareComponent } from './pages/software/software.component';
+import { UxProjectsComponent } from './pages/ux-projects/ux-projects.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SoftwareComponent } from './pages/software/software.component';
     ProjectCardComponent,
     FilterBarComponent,
     ArchitectureComponent,
-    SoftwareComponent
+    SoftwareComponent,
+    UxProjectsComponent
   ],
   imports: [
     CommonModule,

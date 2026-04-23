@@ -9,7 +9,7 @@ export type AppMode =
   | `${BaseMode}-${ModeExtension}`;
 
 // ✅ Portfolio
-export const PORTFOLIO_TYPES = ['architecture', 'software'] as const;
+export const PORTFOLIO_TYPES = ['architecture', 'software', 'ux-projects'] as const;
 export type PortfolioType = typeof PORTFOLIO_TYPES[number];
 
 // ✅ Resume
@@ -43,8 +43,8 @@ export function isResumeRole(type: string | null): type is ResumeRole {
 }
 
 export const MODE_TO_PORTFOLIO: Record<BaseMode, PortfolioType[]> = {
-  home: ['architecture', 'software'],
-  dev: ['software'],
+  home: ['architecture', 'software', 'ux-projects'],
+  dev: ['software', 'ux-projects'],
   arch: ['architecture'],
 };
 

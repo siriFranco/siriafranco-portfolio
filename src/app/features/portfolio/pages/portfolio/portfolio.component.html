@@ -4,10 +4,8 @@
 
 <hr>
 
-<div id="architecture">
-  <app-architecture></app-architecture>
-</div>
+<app-architecture *ngIf="isVisible('architecture')"></app-architecture>
 
-<div id="software">
-  <app-software></app-software>
-</div>
+<app-software *ngIf="isVisible('software')"></app-software>
+
+<app-ux-projects *ngIf="isVisible('ux-projects')"></app-ux-projects>

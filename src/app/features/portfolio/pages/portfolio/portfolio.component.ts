@@ -1,55 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouteService} from 'src/app/shared/services/route.service';
-import { PortfolioType } from 'src/app/shared/constants/app.constants';
-import { AppMode, getBaseMode } from 'src/app/shared/constants/app.constants';
-import { getModeFromPath } from 'src/app/shared/constants/app.constants';
+
+import {
+  AppMode,
+  BaseMode,
+  ModeExtension,
+  getModeFromPath,
+  getBaseMode,
+  getModeExtension,
+  getAllowedPortfolioTypes,
+  PortfolioType
+} from 'src/app/shared/constants/app.constants';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-
 export class PortfolioComponent implements OnInit {
 
-  mode!: AppMode;
-  base!: string;
+  mode: AppMode = 'home';
+  base: BaseMode = 'home';
+  extension: ModeExtension | null = null;
 
-  showArchitecture = false;
-  showSoftware = false;
+  allowedTypes: PortfolioType[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.mode = this.route.snapshot.paramMap.get('mode') as AppMode;
+  ngOnInit(): void {
+    const modeParam = this.route.snapshot.paramMap.get('mode');
+
+    this.mode = getModeFromPath(modeParam);
     this.base = getBaseMode(this.mode);
+    this.extension = getModeExtension(this.mode);
 
-    this.resolveView();
+    this.allowedTypes = getAllowedPortfolioTypes(this.mode);
+
+    console.log('🟡 PORTFOLIO INIT');
+    console.log('Mode:', this.mode);
+    console.log('Base:', this.base);
+    console.log('Extension:', this.extension);
+    console.log('Allowed:', this.allowedTypes);
   }
 
-  resolveView() {
-    if (this.base === 'arch') {
-      this.showArchitecture = true;
-    }
-
-    if (this.base === 'dev') {
-      this.showSoftware = true;
-    }
-
-    if (this.base === 'home') {
-      this.showArchitecture = true;
-      this.showSoftware = true;
-    }
-  }
-
-
-  ngAfterViewInit() {
-    this.route.fragment.subscribe(fragment => {
-      if (fragment) {
-        const el = document.getElementById(fragment);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  // 🔥 Igual que filteredJobs
+  isVisible(type: PortfolioType): boolean {
+    return this.allowedTypes.includes(type);
   }
 }
