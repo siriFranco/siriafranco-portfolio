@@ -6,6 +6,7 @@ import { WorkExperienceComponent } from './pages/workExperience/workExperience.c
 import { ResumeComponent } from './pages/resume/resume.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     ResumeComponent,
     CertificationsComponent,
     WorkExperienceComponent,
-    ContactComponent
+    ContactComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule,

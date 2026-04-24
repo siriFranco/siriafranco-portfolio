@@ -91,6 +91,10 @@ h3 {
   margin-top: 1.5rem;
 }
 
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+}
+
 // 👉 después de listas (más aire)
 ul + * {
   margin-top: clamp(1.5rem, 2vw, 2rem);

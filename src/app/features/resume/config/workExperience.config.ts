@@ -1,10 +1,5 @@
 import { AppMode } from 'src/app/shared/constants/app.constants';
 
-export type ResumeMeta = {
-  title: string;
-  summary: string;
-};
-
 export type RoleMode = 'home' | 'dev' | 'arch' | 'est' | 'pm';
 export type BaseMode = 'home' | 'dev' | 'arch';
 
@@ -28,33 +23,6 @@ export type ResumeJob = {
 };
 
 export type DescriptionKey = 'home' | 'dev' | 'arch' | 'est' | 'pm';
-
-// =====================
-// 🔥 META
-// ========
-// =============
-
-export const RESUME_META: Partial<Record<AppMode, ResumeMeta>> = {
-  home: {
-    title: 'Professional Profile',
-    summary: 'Software Developer experienced in building and maintaining web applications across frontend and backend. Skilled in working with APIs, data, and system integrations to ensure reliable functionality. Collaborative and proactive in troubleshooting issues and improving product performance.'
-  },
-
-  dev: {
-    title: 'Fullstack Developer',
-    summary: `Software Developer experienced in building and maintaining web applications across frontend and backend. Skilled in working with APIs, data, and system integrations to ensure reliable functionality. Collaborative and proactive in troubleshooting issues and improving product performance.`
-  },
-
-  'arch-pm': {
-    title: 'Project Manager | Architect',
-    summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through accurate reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operational efficiency.`
-  },
-
-  'arch-est': {
-    title: 'Architect | Estimator',
-    summary: `Construction Project Coordinator with experience in residential developments, cost estimation, and contractor coordination. Skilled in managing multiple tasks simultaneously. Analytical and detail-oriented, with a strong foundation in project management and client collaboration. Adaptable, proactive, and resilient, with the ability to adjust quickly and consistently deliver results.`
-  }
-};
 
 
 // =====================

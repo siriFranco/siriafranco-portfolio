@@ -13,9 +13,7 @@ import {
 
 import {
   RESUME_JOBS,
-  RESUME_META,
   ResumeJob,
-  ResumeMeta,
   RoleMode
 } from '../../config/workExperience.config';
 import { ABOUT_ME_CONFIG } from '../../config/aboutme.config';
@@ -36,7 +34,6 @@ export class WorkExperienceComponent implements OnInit {
   extension: ModeExtension | null = null;
 
   // data
-  meta!: ResumeMeta;
   jobs: ResumeJob[] = RESUME_JOBS;
 
   //imagen
@@ -52,8 +49,6 @@ export class WorkExperienceComponent implements OnInit {
 
     this.base = getBaseMode(this.mode);
     this.extension = getModeExtension(this.mode);
-
-    this.meta = RESUME_META[this.mode] ?? RESUME_META['home']!;
 
     console.log('🟡 RESUME INIT');
     console.log('URL param:', modeParam);

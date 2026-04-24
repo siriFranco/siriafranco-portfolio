@@ -1,0 +1,28 @@
+<h2>Skills</h2>
+
+<div class="skills-container">
+
+  <div *ngFor="let category of filteredCategories" class="skills-category">
+
+    <h3 class="category-title">
+      {{ category.title }}
+    </h3>
+
+    <div class="skills-grid">
+
+      <div *ngFor="let skill of filterSkills(category.skills)"
+           class="skill-item">
+
+        <i *ngIf="skill.icon" [class]="skill.icon"></i>
+
+        <span class="skill-name">
+          {{ skill.name }}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
