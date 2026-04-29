@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ResumeMeta, RESUME_META } from '../../config/resume.config';
-import { AppMode } from 'src/app/shared/constants/app.constants';
+import { AppMode, resolveMode } from 'src/app/shared/constants/app.constants';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })
-export class ResumeComponent implements OnInit{
+export class ResumeComponent implements OnInit {
 
   meta!: ResumeMeta;
-  mode: AppMode = 'home';
+  mode!: AppMode;
+
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    
-    this.meta = RESUME_META[this.mode] ?? RESUME_META['home']!;
-  }
 
+    this.route.paramMap.subscribe(params => {
+      const modeParam = params.get('mode');
+
+      this.mode = resolveMode(modeParam);
+      this.meta = RESUME_META[this.mode] ?? RESUME_META['home']!;
+    });
+  }
 }
