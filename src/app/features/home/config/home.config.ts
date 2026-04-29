@@ -1,10 +1,14 @@
 import { AppMode } from 'src/app/shared/constants/app.constants';
 
 export type HomeGreeting = {
+  intro?: string;
   title: string;
   subtitle: string;
   description?: string[];
 };
+
+const GLOBAL_INTRO =
+  'Hi, welcome to my website — glad you’re here. This space is designed to give you a clear and honest view of my work, mindset, and professional journey.';
 
 export const HOME_CONFIG: Partial<Record<AppMode, HomeGreeting>> = {
     home: {
@@ -24,6 +28,16 @@ export const HOME_CONFIG: Partial<Record<AppMode, HomeGreeting>> = {
         'I specialize in fullstack development, working across frontend interfaces, backend systems, and API integrations.',
         'My focus is on writing clean, maintainable code and building systems that are performant and scalable.',
         'Explore my projects to see real implementations of modern web applications and technical solutions.'
+    ]
+    },
+
+    'dev-pm': {
+    title: 'Technical Project Manager',
+    subtitle: 'Bridging technology and execution',
+    description: [
+        'I combine my background in software development with project management to lead technical initiatives from planning to delivery.',
+        'I work coordinating teams, managing timelines, and ensuring that technical decisions align with business goals.',
+        'My focus is on communication, execution, and delivering scalable solutions while keeping projects on track.'
     ]
     },
 

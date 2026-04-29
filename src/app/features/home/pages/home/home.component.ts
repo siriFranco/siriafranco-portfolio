@@ -48,9 +48,49 @@ export class HomeComponent implements OnInit {
       isEstimator: this.isEstimator,
       isPM: this.isPM
     });
+
+    this.fullIntro = this.homeConfig.intro ?? '';
+    this.introVisible = true;
+    setTimeout(() => {
+      this.contentVisible = true;
+    }, 50);
+    setTimeout(() => {
+      this.isTyping = true;
+    }, 3500);
+    setTimeout(() => {
+      this.typeText();
+      }, 4000);
+    
   }
 
-    get homeConfig() {
-    return HOME_CONFIG[this.mode] ?? HOME_CONFIG.home!;
+  get homeConfig() {
+    const config = HOME_CONFIG[this.mode] ?? HOME_CONFIG.home!;
+
+    return {
+      ...config,
+      intro: 'Hi, welcome to my portfolio — I’m glad you’re here. Feel free to explore and get a sense of how I think, build, and approach real-world projects.'
+    };
   }
+
+  displayedIntro = '';
+  fullIntro = '';
+  isTyping = false;
+
+  introVisible = false;
+  contentVisible = false;
+
+typeText() {
+  let i = 0;
+  const speed = 25;
+
+  const interval = setInterval(() => {
+    this.displayedIntro += this.fullIntro[i];
+    i++;
+
+    if (i >= this.fullIntro.length) {
+      clearInterval(interval);
+      this.isTyping = false;
+    }
+  }, speed);
+}
 }

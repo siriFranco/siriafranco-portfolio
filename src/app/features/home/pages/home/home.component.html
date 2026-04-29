@@ -1,25 +1,31 @@
 <section class="home">
 
-  <!-- 👤 HERO / ABOUT (equivalente a job header) -->
   <div class="home__header">
 
-    <div class="home__meta">
-      <h1>{{ homeConfig.title }}</h1>
-      <h3 class="home__subtitle">
-        {{ homeConfig.subtitle }}
-      </h3>
+    <!-- 🧠 Columna izquierda (contenido principal) -->
+    <div class="home__left">
+
+      <div class="home__meta anim-reveal" [class.visible]="contentVisible">
+        <h1>{{ homeConfig.title }}</h1>
+
+        <h3 class="home__subtitle">
+          {{ homeConfig.subtitle }}
+        </h3>
+
+        <p *ngFor="let line of homeConfig.description">
+          {{ line }}
+        </p>
+      </div>
+
     </div>
 
-  </div>
-
-  <br>
-
-  <!-- 🧭 DESCRIPTION (equivalente a job descriptions) -->
-  <div class="home__content">
-
-    <p *ngFor="let line of homeConfig.description">
-      {{ line }}
-    </p>
+    <!-- 👋 Columna derecha (intro + typing) -->
+    <div class="home__intro-wrapper">
+      <p class="home__intro anim-delayed" [class.visible]="introVisible">
+        {{ displayedIntro }}
+        <span class="cursor" *ngIf="isTyping"></span>
+      </p>
+    </div>
 
   </div>
 

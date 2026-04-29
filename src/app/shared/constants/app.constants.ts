@@ -69,13 +69,3 @@ export function getModeExtension(mode: AppMode): ModeExtension | null {
 }
 
 export type ResumeContentRole = BaseMode | 'pm';
-
-export function resolveResumeRole(extension: ModeExtension | null, base: BaseMode): ResumeContentRole {
-
-  if (!extension) return base;
-
-  // regla especial: est → pm
-  if (extension === 'est') return 'pm';
-
-  return extension;
-}

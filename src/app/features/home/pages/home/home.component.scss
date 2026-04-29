@@ -1,0 +1,99 @@
+/* ==============================
+   🧱 Layout base
+============================== */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==============================
+   🧠 Header (2 columnas)
+============================== */
+.home__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ==============================
+   🧠 Columna izquierda
+============================== */
+.home__left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==============================
+   🧠 Meta (title + subtitle + desc)
+============================== */
+.home__meta {
+  opacity: 0;
+  filter: blur(6px);
+
+  transition: 
+    opacity 0.8s;
+}
+
+.home__meta.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+
+/* ==============================
+   👋 Intro (derecha)
+============================== */
+.home__intro-wrapper {
+  display: flex;
+  align-items: center; /* 🔥 centrado vertical */
+  height: 100%;
+}
+
+.home__intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 520px;
+
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+  transition-delay: 0.6s; 
+  /* 0.35 fade meta + buffer */
+
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.home__intro.visible {
+  opacity: 1;
+}
+
+/* ==============================
+   ⌨️ Cursor tipo Siri
+============================== */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  background: currentColor;
+
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ==============================
+   📱 Responsive
+============================== */
+@media (max-width: 768px) {
+  .home__header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+}

@@ -7,8 +7,7 @@ import {
   ModeExtension,
   getModeFromPath,
   getBaseMode,
-  getModeExtension,
-  resolveResumeRole
+  getModeExtension
 } from 'src/app/shared/constants/app.constants';
 
 import {

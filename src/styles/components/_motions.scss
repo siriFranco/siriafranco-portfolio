@@ -1,0 +1,146 @@
+/* =========================================
+   🎬 MOTION SYSTEM
+   Centralized animation tokens & utilities
+========================================= */
+
+/* ==============================
+   🎯 TOKENS
+============================== */
+
+/* Durations */
+$motion-fast: 0.2s;
+$motion-medium: 0.4s;
+$motion-slow: 0.6s;
+$motion-xl: 1s;
+
+/* Easings */
+$ease-standard: ease;
+$ease-smooth: cubic-bezier(0.22, 1, 0.36, 1); // premium feel
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+/* Delays */
+$delay-none: 0s;
+$delay-short: 0.2s;
+$delay-medium: 0.4s;
+$delay-long: 0.6s;
+
+
+/* ==============================
+   🧱 BASE UTILITIES
+============================== */
+
+/* Fade only */
+.anim-fade {
+  opacity: 0;
+  transition: opacity $motion-medium $ease-standard;
+}
+
+.anim-fade.visible {
+  opacity: 1;
+}
+
+
+/* Fade + blur (primary reveal) */
+.anim-reveal {
+  opacity: 0;
+  filter: blur(6px);
+
+  transition:
+    opacity $motion-slow $ease-smooth,
+    filter $motion-slow $ease-smooth;
+}
+
+.anim-reveal.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+
+/* Delayed fade (secondary content) */
+.anim-delayed {
+  opacity: 0;
+
+  transition:
+    opacity $motion-medium $ease-standard;
+
+  transition-delay: $delay-medium;
+}
+
+.anim-delayed.visible {
+  opacity: 1;
+}
+
+
+/* ==============================
+   🎯 ADVANCED UTILITIES
+============================== */
+
+/* Fade + translate (subtle entrance) */
+.anim-rise {
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity $motion-medium $ease-smooth,
+    transform $motion-medium $ease-smooth;
+}
+
+.anim-rise.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Scale in (micro interaction) */
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.98);
+
+  transition:
+    opacity $motion-medium $ease-smooth,
+    transform $motion-medium $ease-smooth;
+}
+
+.anim-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* ==============================
+   ⌨️ TYPING / CURSOR
+============================== */
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  background: currentColor;
+
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+
+/* ==============================
+   🎛 HELPERS
+============================== */
+
+/* Delay modifiers (optional utility classes) */
+.delay-short {
+  transition-delay: $delay-short !important;
+}
+
+.delay-medium {
+  transition-delay: $delay-medium !important;
+}
+
+.delay-long {
+  transition-delay: $delay-long !important;
+}
