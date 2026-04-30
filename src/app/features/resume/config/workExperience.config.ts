@@ -58,7 +58,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     role: 'Software Developer',
     company: 'Nantisystem',
     period: 'Feb 2024 – Present',
-    visibleIn: ['home', 'arch-pm', 'arch-est',  'dev',],
+    visibleIn: ['home', 'arch-pm', 'arch-est', 'dev', 'dev-pm'],
     descriptions: {
       default: [
         'Web developer.'
@@ -93,7 +93,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     role: 'Fullstack Developer',
     company: 'Generation',
     period: 'Mar 2023 – Jun 2023',
-    visibleIn: ['home', 'dev'],
+    visibleIn: ['home', 'dev', 'dev-pm'],
     descriptions: {
       default: [
         'Fullstack info.'
@@ -102,9 +102,10 @@ export const RESUME_JOBS: ResumeJob[] = [
         {
           roles: ['home', 'pm', 'dev'],
           content: [
-            'Built fullstack applications using Java (Spring Boot) and JavaScript.',
-            'Developed frontend interfaces and backend logic with focus on data handling and validation.',
-            'Collaborated in an Agile team, tracking progress and validating features with stakeholders.'
+            'Developed fullstack applications using Java (Spring Boot) and JavaScript, delivering scalable and maintainable solutions.',
+            'Designed and implemented RESTful APIs and responsive frontend interfaces, ensuring efficient data handling and validation.',
+            'Collaborated within an Agile team, participating in sprint planning, task tracking, and continuous feature validation with stakeholders.',
+            'Improved code quality and application reliability through structured debugging, testing, and adherence to best practices.'
           ]
         }
       ]
@@ -114,7 +115,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     role: 'Construction Coordinator',
     company: 'Desarrollos ProVida',
     period: 'Feb 2022 – Feb 2023',
-    visibleIn: ['home', 'arch',  'arch-pm', 'arch-est', 'dev'],
+    visibleIn: ['home', 'arch',  'arch-pm', 'arch-est', 'dev', 'dev-pm'],
     descriptions: {
       default: [
         'Construction coordinator.'
@@ -148,7 +149,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     role: 'Quality Manager',
     company: 'Espacios IR',
     period: 'Jul 2021 – Jan 2022',
-    visibleIn: ['home', 'arch', 'arch-est', 'arch-pm', 'dev'],
+    visibleIn: ['home', 'arch', 'arch-est', 'arch-pm', 'dev', 'dev-pm'],
     descriptions: {
       default: [
         'Quality manager info'
@@ -176,7 +177,7 @@ export const RESUME_JOBS: ResumeJob[] = [
     role: 'Construction Supervisor',
     company: 'Constructora Magno',
     period: 'Jan 2020 – Feb 2021',
-    visibleIn: ['home', 'arch', 'arch-est', 'arch-pm', 'dev'],
+    visibleIn: ['home', 'arch', 'arch-est', 'arch-pm', 'dev', 'dev-pm'],
     descriptions: {
       default: [
         'Construction supervisor info.'
