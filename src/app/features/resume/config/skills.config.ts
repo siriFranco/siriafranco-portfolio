@@ -1,15 +1,19 @@
 import { AppMode } from 'src/app/shared/constants/app.constants';
 
 export type SkillCategoryKey =
-  | 'data-backend'
-  | 'frontend'
-  | 'tools'
-  | 'cloud'
-  | 'methodologies'
-  | 'other'
-  | 'design'
+  | 'languages'
   | 'architecture'
-  | 'languages';
+  | 'methodologies'
+  | 'frontend'
+  | 'design'
+  | 'backendData'
+  | 'cloudApis'
+  | 'data'
+  | 'developerTools'
+  | 'collaborationProductivity'
+  | 'construction'
+  | 'other'
+  ;
 
 export type SkillItem = {
   name: string;
@@ -77,7 +81,6 @@ export const RESUME_SKILLS: SkillCategory[] = [
       { name: 'React', icon: 'devicon-react-original' },
       { name: 'TypeScript', icon: 'devicon-typescript-plain' },
       { name: 'JavaScript', icon: 'devicon-javascript-plain' },
-      { name: 'HTML', icon: 'devicon-html5-plain' },
       { name: 'CSS', icon: 'devicon-css3-plain' }
     ]
   },
@@ -99,7 +102,7 @@ export const RESUME_SKILLS: SkillCategory[] = [
   // 🗄️ BACKEND
   // =====================
   {
-    title: 'Data & Backend',
+    title: 'Backend & Data',
     visibleIn: ['home', 'dev'],
     skills: [
         { name: 'Node.js', icon: 'devicon-nodejs-plain' },
@@ -117,7 +120,8 @@ export const RESUME_SKILLS: SkillCategory[] = [
     visibleIn: ['home', 'dev'],
     skills: [
       { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark' },
-      { name: 'REST APIs', icon: 'devicon-fastapi-plain' }
+      { name: 'REST APIs', icon: 'devicon-fastapi-plain' },
+      { name: 'Salesforce', icon: 'devicon-salesforce-plain' },
     ]
   },
 // =====================
@@ -139,27 +143,33 @@ export const RESUME_SKILLS: SkillCategory[] = [
         { name: 'Opus', icon: 'fa-solid fa-calculator' },
     ]
     },
+
+    {
+      title: 'Developer Tools',
+      visibleIn: ['home', 'dev'],
+      skills: [
+        { name: 'GitHub', icon: 'devicon-github-original' },
+        { name: 'GitLab', icon: 'devicon-gitlab-plain' },
+        { name: 'Docker', icon: 'devicon-docker-plain' },
+        { name: 'Postman', icon: 'devicon-postman-plain' }
+      ]
+    },
     
   // =====================
   // 🧰 TOOLS
   // =====================
-    {
-    title: 'Tools',
-    visibleIn: ['home', 'dev', 'arch'],
-    skills: [
-        { name: 'Jira', icon: 'devicon-jira-plain' },
-        { name: 'Slack', icon: 'devicon-slack-plain' },
-        { name: 'Mattermost', icon: 'fa-brands fa-mastodon' },
-        { name: 'Trello', icon: 'fa-brands fa-trello' },
-        { name: 'Asana', icon: 'fa-solid fa-circle-nodes' },
-
-        // 🔥 solo dev + home
-        { name: 'GitHub', icon: 'devicon-github-original', visibleIn: ['home', 'dev'] },
-        { name: 'GitLab', icon: 'devicon-gitlab-plain', visibleIn: ['home', 'dev'] },
-
-        { name: 'Microsoft Office', icon: 'fa-solid fa-file-word' },
-        { name: 'Email', icon: 'fa-solid fa-envelope' }
-    ]
-    },
+{
+  title: 'Collaboration & Productivity',
+  visibleIn: ['home', 'dev', 'arch'],
+  skills: [
+    { name: 'Jira', icon: 'devicon-jira-plain' },
+    { name: 'Slack', icon: 'devicon-slack-plain' },
+    { name: 'Mattermost', icon: 'fa-brands fa-mastodon' },
+    { name: 'Trello', icon: 'fa-brands fa-trello' },
+    { name: 'Asana', icon: 'fa-solid fa-circle-nodes' },
+    { name: 'Microsoft Office', icon: 'fa-solid fa-file-word' },
+    { name: 'Email', icon: 'fa-solid fa-envelope' }
+  ]
+}
 
 ];

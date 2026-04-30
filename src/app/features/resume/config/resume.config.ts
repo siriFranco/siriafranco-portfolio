@@ -16,9 +16,14 @@ export const RESUME_META: Partial<Record<AppMode, ResumeMeta>> = {
     summary: `Software Developer experienced in building and maintaining web applications across frontend and backend. Skilled in working with APIs, data, and system integrations to ensure reliable functionality. Collaborative and proactive in troubleshooting issues and improving product performance.`
   },
 
+  'dev-pm': {
+    title: 'Technical Project Manager',
+    summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operations.`
+  },
+
   'arch-pm': {
     title: 'Project Manager | Architect',
-    summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through accurate reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operational efficiency.`
+    summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operations.`
   },
 
   'arch-est': {
