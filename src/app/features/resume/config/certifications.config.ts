@@ -1,3 +1,4 @@
+import { BaseMode } from "./workExperience.config";
 
 export type CertificationType =
   'general'
@@ -20,14 +21,22 @@ export interface Certification {
   description?: string;
   skills?: string[];
   link?: string;
-  type: CertificationType; // 👈 clave para agrupar
+  type: CertificationType; 
+  visibleIn?: BaseMode[]; 
 }
+
+const MODE_TO_CERT_TYPES: Record<BaseMode, CertificationType[]> = {
+  home: ['general', 'management', 'tech', 'ai', 'backend', 'data', 'frontend', 'design', 'platforms', 'architecture'],
+  dev: ['tech', 'backend', 'frontend', 'ai', 'data'],
+  arch: ['architecture', 'management', 'general']
+};
 
 export const CERTIFICATIONS: Certification[] = [
   {
     title: 'Bachelor’s Degree in Architecture',
     issuer: 'Universidad de Sonora',
     type: 'architecture',
+    visibleIn: ['arch'],
     description: 'Comprehensive training in architectural design, construction, and project planning.',
     skills: [
       'Architectural Design',
@@ -41,6 +50,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'EF SET',
     year: '2024',
     type: 'general',
+    visibleIn: ['arch'],
     description: 'Certified English proficiency level based on EF SET standardized test.',
     skills: [
       'English',
@@ -55,6 +65,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2026',
     duration: '4h',
     type: 'management',
+    visibleIn: ['arch'],
     description: 'Emotional intelligence applied to professional environments, including self-awareness, communication, and workplace relationships.',
     skills: [
       'Emotional Intelligence',
@@ -70,6 +81,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2025',
     duration: '3.5h',
     type: 'management',
+    visibleIn: ['arch'],
     description: 'Modern leadership practices focused on team management, digital collaboration, and effective decision-making.',
     skills: [
       'Leadership',
@@ -85,6 +97,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2026',
     duration: '2h',
     type: 'management',
+    visibleIn: ['arch'],
     description: 'Intro to Agile & Scrum, roles, events, and delivering value with iterative workflows.',
     skills: [
       'Agile',
@@ -100,6 +113,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2026',
     duration: '1.5h',
     type: 'management',
+    visibleIn: ['arch'],
     description: 'Project management basics: lifecycle, roles, risks, and control fundamentals.',
     skills: [
       'Project Management',
@@ -117,6 +131,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2023',
     duration: '480h',
     type: 'tech',
+    visibleIn: ['dev'],
     description: 'Full stack training program focused on Java development, backend and frontend integration, and professional skills for software development.',
     skills: [
       'HTML',
@@ -135,6 +150,7 @@ export const CERTIFICATIONS: Certification[] = [
     year: '2025',
     duration: '240h',
     type: 'data',
+    visibleIn: ['arch'],
     description: 'Data analysis with spreadsheets, SQL, Tableau, and R to drive data-based decisions.',
     skills: [
       'Data Analysis',
@@ -151,6 +167,7 @@ export const CERTIFICATIONS: Certification[] = [
   year: '2024',
   duration: '2h',
   type: 'data',
+  visibleIn: ['arch'],
   description: 'Linear algebra foundations applied to data science and analytics.',
   skills: [
     'Linear Algebra',
@@ -165,6 +182,7 @@ export const CERTIFICATIONS: Certification[] = [
   issuer: 'Iberoamerican Tech Foundation',
   year: '2026',
   type: 'ai',
+  visibleIn: ['arch'],
   description: 'Foundations of AI and prompt usage for practical applications.',
   skills: [
     'Artificial Intelligence',
@@ -177,6 +195,7 @@ export const CERTIFICATIONS: Certification[] = [
   issuer: 'Iberoamerican Tech Foundation',
   year: '2026',
   type: 'ai',
+  visibleIn: ['arch'],
   description: 'Core AI engineering concepts and practical prompt-based workflows.',
   skills: [
     'Artificial Intelligence',
@@ -189,6 +208,7 @@ export const CERTIFICATIONS: Certification[] = [
   issuer: 'Generation México',
   year: '2026',
   type: 'ai',
+  visibleIn: ['arch'],
   description: 'Using AI tools to generate, test, and improve code in real workflows.',
   skills: [
     'AI-Assisted Development',
