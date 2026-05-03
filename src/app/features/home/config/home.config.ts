@@ -7,8 +7,8 @@ export type HomeGreeting = {
   description?: string[];
 };
 
-const GLOBAL_INTRO =
-  'Hi, welcome to my website — glad you’re here. This space is designed to give you a clear and honest view of my work, mindset, and professional journey.';
+export const GLOBAL_INTRO =
+  'Hi, welcome to my website — I’m glad you’re here. Feel free to explore and get a sense of how I think, build, and approach real-world projects.';
 
 export const HOME_CONFIG: Partial<Record<AppMode, HomeGreeting>> = {
     home: {
@@ -45,9 +45,9 @@ export const HOME_CONFIG: Partial<Record<AppMode, HomeGreeting>> = {
     title: 'Architecture & Construction',
     subtitle: 'Designing and coordinating real-world projects',
     description: [
-        'I work in architecture and construction, focused on planning, coordination, and execution of residential projects.',
-        'My experience includes design interpretation, site supervision, and collaboration with contractors and clients.',
-        'This section highlights my approach to structured planning and real-world project delivery.'
+        'I work in architecture and construction, combining design and on-site execution, with most experience in residential projects.',
+        'My background includes design interpretation, site supervision, and coordination with contractors and clients throughout project phases.',
+        'This section highlights my approach to practical design, structured planning, and real-world delivery, with strong experience in residential construction.'
     ]
     },
 
@@ -62,7 +62,7 @@ export const HOME_CONFIG: Partial<Record<AppMode, HomeGreeting>> = {
     },
 
     'arch-pm': {
-    title: 'Project Manager',
+    title: 'Architecture & Project Manager',
     subtitle: 'Execution, coordination and delivery',
     description: [
         'I manage construction projects by coordinating teams, timelines, and deliverables across multiple phases.',

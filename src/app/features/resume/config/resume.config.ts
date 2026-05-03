@@ -21,6 +21,11 @@ export const RESUME_META: Partial<Record<AppMode, ResumeMeta>> = {
     summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operations.`
   },
 
+   'arch': {
+    title: 'Architect',
+    summary: `With experience in design, construction coordination, and project delivery across residential developments. Skilled in supervising on-site execution, managing teams, and ensuring quality, timelines, and compliance. Experienced in material quantification, cost estimation, and resource planning. Detail-oriented and proactive, with strong problem-solving abilities and a focus on efficient operations, client communication, and organized project documentation.`
+  },
+
   'arch-pm': {
     title: 'Project Manager | Architect',
     summary: `Detail-oriented professional with experience in project coordination and process organization across construction and tech environments. Skilled in managing information, maintaining structured records, and supporting team performance through reporting. Proactive and adaptable, with strong research abilities and a focus on data accuracy and operations.`

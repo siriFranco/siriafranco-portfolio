@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getModeFromPath } from 'src/app/shared/constants/app.constants';
 import { AppMode, resolveMode, getBaseMode, getModeExtension } from 'src/app/shared/constants/app.constants';
 import { ActivatedRoute } from '@angular/router';
-import { HOME_CONFIG } from '../../config/home.config';
+import { HOME_CONFIG, GLOBAL_INTRO } from '../../config/home.config';
 
 @Component({
   selector: 'app-home',
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
 
     return {
       ...config,
-      intro: 'Hi, welcome to my portfolio — I’m glad you’re here. Feel free to explore and get a sense of how I think, build, and approach real-world projects.'
+      intro: GLOBAL_INTRO
     };
   }
 
