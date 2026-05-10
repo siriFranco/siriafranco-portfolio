@@ -17,7 +17,10 @@
           <h4 class="cert-card__title">{{ cert.title }}</h4>
 
           <p class="cert-card__meta">
-            {{ cert.issuer }} • {{ cert.duration }}
+            {{ cert.issuer }}
+            <ng-container *ngIf="cert.duration">
+              • {{ cert.duration }}
+            </ng-container>
           </p>
         </div>
 

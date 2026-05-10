@@ -7,7 +7,7 @@ export type ResumeMeta = {
 
 export const RESUME_META: Partial<Record<AppMode, ResumeMeta>> = {
   home: {
-    title: 'Professional Profile',
+    title: 'Fullstack Developer',
     summary: 'Software Developer experienced in building and maintaining web applications across frontend and backend. Skilled in working with APIs, data, and system integrations to ensure reliable functionality. Collaborative and proactive in troubleshooting issues and improving product performance.'
   },
 

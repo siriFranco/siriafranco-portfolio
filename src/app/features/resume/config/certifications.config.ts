@@ -1,16 +1,16 @@
 import { BaseMode } from "./workExperience.config";
 
 export type CertificationType =
-  'general'
+    'architecture'
+  | 'general'
   | 'management'
   | 'tech'
+  | 'data'
   | 'ai'
   | 'backend'
-  | 'data'
   | 'frontend'
   | 'design'
   | 'platforms'
-  | 'architecture'
   ;
 
 export interface Certification {
@@ -176,23 +176,10 @@ export const CERTIFICATIONS: Certification[] = [
   ],
   link: 'https://drive.google.com/file/d/1_5eC-RMM_dGYdg4x1Nct1KNnkuY9pcqi/view'
 },
-  // 🔥 NUEVOS (AI)
-{
-  title: 'Introduction to Artificial Intelligence',
-  issuer: 'Iberoamerican Tech Foundation',
-  year: '2026',
-  type: 'ai',
-  visibleIn: ['arch'],
-  description: 'Foundations of AI and prompt usage for practical applications.',
-  skills: [
-    'Artificial Intelligence',
-    'Prompt Engineering'
-  ],
-  link: 'https://campus.iberotech.org/pluginfile.php/1/tool_certificate/issues/1775896141/8437625289SF.pdf'
-},
+  // (AI)
 {
   title: 'Introduction to Artificial Intelligence Engr',
-  issuer: 'Iberoamerican Tech Foundation',
+  issuer: 'IberoTech Foundation',
   year: '2026',
   type: 'ai',
   visibleIn: ['arch'],
@@ -388,7 +375,37 @@ export const CERTIFICATIONS: Certification[] = [
   }, */
   //platforms platforms
   {
-    title: 'Mendix Rapid Developer Certification',
+    title: 'Agentblazer Champion',
+    issuer: 'Salesforce',
+    year: '2026',
+    duration: '20h',
+    type: 'platforms',
+    visibleIn: ['arch'],
+    description: 'Applied AI and Agentforce skills focused on automation, conversational agents, and Salesforce ecosystem solutions.',
+    skills: [
+      'Agentforce',
+      'AI Automation',
+      'Salesforce',
+      'CRM'
+    ],
+    link: 'https://www.salesforce.com/trailblazer/sirifranco'
+  },
+    {
+    title: 'Artificial intelligence and Agentforce',
+    issuer: 'IberoTech Foundation',
+    year: '2026',
+    duration: '20h',
+    type: 'platforms',
+    description: 'Foundational knowledge in artificial intelligence, AI agents, and Agentforce workflows for business automation.',
+    skills: [
+      'Artificial intelligence',
+      'Agentforce',
+      'CRM'
+    ],
+    link: 'https://campus.iberotech.org/pluginfile.php/1/tool_certificate/issues/1778262439/6162921151SF.pdf'
+  },
+  {
+    title: 'Mendix Rapid Developer',
     issuer: 'Mendix',
     year: '2024',
     duration: '20h',
