@@ -178,6 +178,22 @@ export const CERTIFICATIONS: Certification[] = [
 },
   // (AI)
 {
+  title: 'AI Essentials',
+  issuer: 'Saïd Business School, University of Oxford',
+  year: '2026',
+  duration: '13h',
+  type: 'ai',
+  visibleIn: ['arch'],
+  description: 'Foundational AI concepts, practical applications, and responsible use of artificial intelligence in professional environments.',
+  skills: [
+    'Artificial Intelligence',
+    'AI Fundamentals',
+    'Responsible AI',
+    'Prompt Engineering'
+  ],
+  link: 'https://www.coursera.org/account/accomplishments/verify/0QPZWUTMWDNE'
+},
+{
   title: 'Introduction to Artificial Intelligence Engr',
   issuer: 'IberoTech Foundation',
   year: '2026',
@@ -203,6 +219,19 @@ export const CERTIFICATIONS: Certification[] = [
     'Software Development'
   ],
   link: 'https://www.credly.com/badges/f95a6e89-9508-4817-bd50-ff68a95be859'
+},
+{
+  title: 'Prompt Engineering Course',
+  issuer: 'Código Facilito',
+  year: '2025',
+  duration: '5h',
+  type: 'ai',
+  description: 'Prompt design techniques for effective AI interaction and outputs.',
+  skills: [
+    'Prompt Engineering',
+    'Artificial Intelligence'
+  ],
+  link: 'https://drive.google.com/file/d/1X0dBvLI3IY1s8URLN7srKrj7PDULiG9O/view'
 },
 
 //backend backend
@@ -339,19 +368,6 @@ export const CERTIFICATIONS: Certification[] = [
   link: 'https://drive.google.com/file/d/1iJ38tsPMH1nkzNUVFMqfqCh8DC6QjjDR/view'
 },
 {
-  title: 'Prompt Engineering Course',
-  issuer: 'Código Facilito',
-  year: '2025',
-  duration: '5h',
-  type: 'ai',
-  description: 'Prompt design techniques for effective AI interaction and outputs.',
-  skills: [
-    'Prompt Engineering',
-    'Artificial Intelligence'
-  ],
-  link: 'https://drive.google.com/file/d/1X0dBvLI3IY1s8URLN7srKrj7PDULiG9O/view'
-},
-{
   title: 'React Professional Course',
   issuer: 'Código Facilito',
   year: '2023',
@@ -378,7 +394,6 @@ export const CERTIFICATIONS: Certification[] = [
     title: 'Agentblazer Champion',
     issuer: 'Salesforce',
     year: '2026',
-    duration: '20h',
     type: 'platforms',
     visibleIn: ['arch'],
     description: 'Applied AI and Agentforce skills focused on automation, conversational agents, and Salesforce ecosystem solutions.',
